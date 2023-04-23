@@ -1,0 +1,15 @@
+E:\mohaymen\practice C#\P1\FullTextSearch\bin\Debug\net7.0\FullTextSearch.exe
+E:\mohaymen\practice C#\P1\FullTextSearch\bin\Debug\net7.0\FullTextSearch.deps.json
+E:\mohaymen\practice C#\P1\FullTextSearch\bin\Debug\net7.0\FullTextSearch.runtimeconfig.json
+E:\mohaymen\practice C#\P1\FullTextSearch\bin\Debug\net7.0\FullTextSearch.dll
+E:\mohaymen\practice C#\P1\FullTextSearch\bin\Debug\net7.0\FullTextSearch.pdb
+E:\mohaymen\practice C#\P1\FullTextSearch\obj\Debug\net7.0\FullTextSearch.csproj.AssemblyReference.cache
+E:\mohaymen\practice C#\P1\FullTextSearch\obj\Debug\net7.0\FullTextSearch.GeneratedMSBuildEditorConfig.editorconfig
+E:\mohaymen\practice C#\P1\FullTextSearch\obj\Debug\net7.0\FullTextSearch.AssemblyInfoInputs.cache
+E:\mohaymen\practice C#\P1\FullTextSearch\obj\Debug\net7.0\FullTextSearch.AssemblyInfo.cs
+E:\mohaymen\practice C#\P1\FullTextSearch\obj\Debug\net7.0\FullTextSearch.csproj.CoreCompileInputs.cache
+E:\mohaymen\practice C#\P1\FullTextSearch\obj\Debug\net7.0\FullTextSearch.dll
+E:\mohaymen\practice C#\P1\FullTextSearch\obj\Debug\net7.0\refint\FullTextSearch.dll
+E:\mohaymen\practice C#\P1\FullTextSearch\obj\Debug\net7.0\FullTextSearch.pdb
+E:\mohaymen\practice C#\P1\FullTextSearch\obj\Debug\net7.0\FullTextSearch.genruntimeconfig.cache
+E:\mohaymen\practice C#\P1\FullTextSearch\obj\Debug\net7.0\ref\FullTextSearch.dll

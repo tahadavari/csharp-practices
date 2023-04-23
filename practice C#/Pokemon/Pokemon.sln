@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokemon", "Pokemon\Pokemon.csproj", "{7A45A7C9-91FC-469A-8DAE-F94A4A091E6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPokemon", "TestPokemon\TestPokemon.csproj", "{BB88489E-882F-4336-AB91-BED815508595}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A45A7C9-91FC-469A-8DAE-F94A4A091E6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A45A7C9-91FC-469A-8DAE-F94A4A091E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A45A7C9-91FC-469A-8DAE-F94A4A091E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A45A7C9-91FC-469A-8DAE-F94A4A091E6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB88489E-882F-4336-AB91-BED815508595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB88489E-882F-4336-AB91-BED815508595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB88489E-882F-4336-AB91-BED815508595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB88489E-882F-4336-AB91-BED815508595}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

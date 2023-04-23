@@ -1,0 +1,33 @@
+E:\mohaymen\pratice .net framwork\bin\Debug\net7.0\appsettings.Development.json
+E:\mohaymen\pratice .net framwork\bin\Debug\net7.0\appsettings.json
+E:\mohaymen\pratice .net framwork\bin\Debug\net7.0\pratice .net framwork.exe
+E:\mohaymen\pratice .net framwork\bin\Debug\net7.0\pratice .net framwork.deps.json
+E:\mohaymen\pratice .net framwork\bin\Debug\net7.0\pratice .net framwork.runtimeconfig.json
+E:\mohaymen\pratice .net framwork\bin\Debug\net7.0\pratice .net framwork.dll
+E:\mohaymen\pratice .net framwork\bin\Debug\net7.0\pratice .net framwork.pdb
+E:\mohaymen\pratice .net framwork\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+E:\mohaymen\pratice .net framwork\bin\Debug\net7.0\Microsoft.OpenApi.dll
+E:\mohaymen\pratice .net framwork\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\mohaymen\pratice .net framwork\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\mohaymen\pratice .net framwork\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\pratice .net framwork.csproj.AssemblyReference.cache
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\pratice .net framwork.GeneratedMSBuildEditorConfig.editorconfig
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\pratice .net framwork.AssemblyInfoInputs.cache
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\pratice .net framwork.AssemblyInfo.cs
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\pratice .net framwork.csproj.CoreCompileInputs.cache
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\pratice .net framwork.MvcApplicationPartsAssemblyInfo.cs
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\pratice .net framwork.MvcApplicationPartsAssemblyInfo.cache
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\staticwebassets\msbuild.pratice .net framwork.Microsoft.AspNetCore.StaticWebAssets.props
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\staticwebassets\msbuild.build.pratice .net framwork.props
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.pratice .net framwork.props
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.pratice .net framwork.props
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\staticwebassets.pack.json
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\staticwebassets.build.json
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\staticwebassets.development.json
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\scopedcss\bundle\pratice .net framwork.styles.css
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\pratice .net framwork.csproj.CopyComplete
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\pratice .net framwork.dll
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\refint\pratice .net framwork.dll
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\pratice .net framwork.pdb
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\pratice .net framwork.genruntimeconfig.cache
+E:\mohaymen\pratice .net framwork\obj\Debug\net7.0\ref\pratice .net framwork.dll

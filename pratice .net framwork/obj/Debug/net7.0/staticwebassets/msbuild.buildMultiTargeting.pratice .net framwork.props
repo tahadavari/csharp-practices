@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\pratice .net framwork.props" />
+</Project>
