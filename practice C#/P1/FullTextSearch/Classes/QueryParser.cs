@@ -4,8 +4,8 @@ namespace FullTextSearch.Classes;
 
 public class QueryParser : IQueryParser
 {
-    public string queryString;
-    public string parseSplit;
+    private readonly string _queryString;
+    private readonly string _parseSplit;
     
     
     public const string requireKey = "requireKey";
@@ -14,13 +14,13 @@ public class QueryParser : IQueryParser
 
     public QueryParser(string queryString, string parseSplit = " ")
     {
-        this.queryString = queryString;
-        this.parseSplit = parseSplit;
+        this._queryString = queryString;
+        this._parseSplit = parseSplit;
     }
 
     public Dictionary<string, List<string>> ParseQueryToListOfKey()
     {
-        string[] searchQuery = this.queryString.Split(this.parseSplit);
+        string[] searchQuery = this._queryString.Split(this._parseSplit);
         List<string> requireKeyList = new List<string>();
         List<string> optionalKeyList = new List<string>();
         List<string> noKeyList = new List<string>();

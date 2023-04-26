@@ -5,36 +5,36 @@ namespace FullTextSearch.Classes;
 
 public class FileReader : IFileReader
 {
-    public string filePath;
-    public bool multi;
-    public Encoding encoding;
-    public string directoryPath;
-    public string fileType;
+    private readonly string _filePath;
+    private readonly  bool _multi;
+    private readonly Encoding _encoding;
+    private readonly string _directoryPath;
+    private readonly string _fileType;
 
-    public FileReader(Encoding encoding, string filePath = null, string directoryPath = null, bool multi = false,
+    public FileReader(Encoding? encoding = null, string filePath = null, string directoryPath = null, bool multi = false,
         string fileType = "txt")
     {
-        this.filePath = filePath;
-        this.multi = multi;
-        this.encoding = encoding;
-        this.directoryPath = directoryPath;
-        this.fileType = fileType;
+        this._filePath = filePath;
+        this._multi = multi;
+        this._encoding = encoding ?? Encoding.UTF8;
+        this._directoryPath = directoryPath;
+        this._fileType = fileType;
     }
 
     public string FileToString()
     {
-        if (multi)
+        if (_multi)
         {
             throw new Exception("Multi is true");
         }
 
-        string fileString = File.ReadAllText(this.filePath, this.encoding);
+        string fileString = File.ReadAllText(this._filePath, this._encoding);
         return fileString;
     }
 
     public Dictionary<string, string> MultiFileToDict()
     {
-        if (!multi)
+        if (!_multi)
         {
             throw new Exception("Multi is false");
         }
@@ -42,14 +42,14 @@ public class FileReader : IFileReader
         
         Dictionary<string, string> filesDictionary = new Dictionary<string, string>();
 
-        DirectoryInfo directory = new DirectoryInfo(this.directoryPath);
-        FileInfo[] files = directory.GetFiles("*."+fileType);
+        DirectoryInfo directory = new DirectoryInfo(this._directoryPath);
+        FileInfo[] files = directory.GetFiles("*."+_fileType);
 
         foreach (FileInfo file in files)
         {
             string fileName = file.Name;
-            string fileContent = File.ReadAllText(file.FullName); //خواندن محتوای فایل
-            filesDictionary.Add(fileName, fileContent); //افزودن نام و محتوای فایل به دیکشنری
+            string fileContent = File.ReadAllText(file.FullName); 
+            filesDictionary.Add(fileName, fileContent); 
         }
 
         return filesDictionary;
