@@ -1,2 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/CodeInspection/PencilsConfiguration/ActualSeverity/@EntryValue">INFO</s:String></wpf:ResourceDictionary>
+	<s:String x:Key="/Default/CodeInspection/PencilsConfiguration/ActualSeverity/@EntryValue">INFO</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9c09dff9_002D104a_002D4ff9_002D9780_002Da2805b5b208f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestRaiseExceptionReadFileToStringButMultiIsTrue" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::8D6371C0-8B7C-46E2-B34E-4623ECEA72B5::net7.0::FullTextSearchTest.Classes.FileReaderTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8D6371C0-8B7C-46E2-B34E-4623ECEA72B5::net7.0::FullTextSearchTest.Classes.InvertedIndexTest.TestReadFileToString&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8D6371C0-8B7C-46E2-B34E-4623ECEA72B5::net7.0::FullTextSearchTest.Classes.InvertedIndexTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8D6371C0-8B7C-46E2-B34E-4623ECEA72B5::net7.0::FullTextSearchTest.Classes.QueryParserTest.TestParseQueryToListOfKey&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
