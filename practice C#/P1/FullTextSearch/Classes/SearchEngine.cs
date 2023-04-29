@@ -4,11 +4,11 @@ namespace FullTextSearch.Classes;
 
 public class SearchEngine : ISearchEngine
 {
-    public Dictionary<string, List<string>> invertedIndex;
+    private readonly Dictionary<string, List<string>> _invertedIndex;
 
     public SearchEngine(Dictionary<string, List<string>> invertedIndex)
     {
-        this.invertedIndex = invertedIndex;
+        this._invertedIndex = invertedIndex;
     }
 
     public List<string> InvertedIndexSearch(List<string> optionalKey, List<string> requireKey, List<string> noKey)
@@ -20,7 +20,7 @@ public class SearchEngine : ISearchEngine
         if (optionalKey.Count > 0)
             result = result.Intersect(optionalResult).ToList();
 
-        foreach (string filePath in noKey)
+        foreach (string filePath in noResult)
         {
             result.Remove(filePath);
         }
@@ -33,9 +33,9 @@ public class SearchEngine : ISearchEngine
         List<string> optionalResult = new List<string>();
         foreach (string key in optionalKey)
         {
-            if (this.invertedIndex.ContainsKey(key))
+            if (this._invertedIndex.TryGetValue(key, out var value))
             {
-                foreach (string filePath in this.invertedIndex[key])
+                foreach (string filePath in value)
                 {
                     optionalResult.Add(filePath);
                 }
@@ -50,9 +50,9 @@ public class SearchEngine : ISearchEngine
         List<string> requireResult = new List<string>();
         foreach (string key in requireKey)
         {
-            if (this.invertedIndex.ContainsKey(key))
+            if (this._invertedIndex.TryGetValue(key, out var value))
             {
-                foreach (string filePath in this.invertedIndex[key])
+                foreach (string filePath in value)
                 {
                     requireResult.Add(filePath);
                 }
@@ -67,13 +67,13 @@ public class SearchEngine : ISearchEngine
         List<string> noResult = new List<string>();
         foreach (string key in noKey)
         {
-            if (this.invertedIndex.ContainsKey(key))
+            if (this._invertedIndex.TryGetValue(key, out var value))
             {
-                foreach (string filePath in this.invertedIndex[key])
+                foreach (string filePath in value)
                 {
                     if (noResult.Contains(filePath))
                     {
-                        noResult.Remove(filePath);
+                        noResult.Add(filePath);
                     }
                 }
             }
