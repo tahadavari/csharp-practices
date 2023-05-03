@@ -1,9 +1,17 @@
 using FullTextSearch.Classes;
+using Xunit.Abstractions;
 
 namespace FullTextSearchTest.Classes;
 
 public class SearchEngineTest
 {
+    private readonly ITestOutputHelper _testOutputHelper;
+
+    public SearchEngineTest(ITestOutputHelper testOutputHelper)
+    {
+        _testOutputHelper = testOutputHelper;
+    }
+
     [Fact]
     public void TestInvertedIndexSearch()
     {
@@ -34,7 +42,7 @@ public class SearchEngineTest
         }
         for (int i = 0; i < fileCount; i++)
         {
-            using (StreamWriter writer = new StreamWriter(filePath + i.ToString() + ".txt"))
+            using (StreamWriter writer = new StreamWriter(filePath + i.ToString() + "f" + ".txt"))
             {
                 writer.Write(text2);
             }
@@ -75,7 +83,7 @@ public class SearchEngineTest
         }
         for (int i = 0; i < fileCount; i++)
         {
-            using (StreamWriter writer = new StreamWriter(filePath + i.ToString() + ".txt"))
+            using (StreamWriter writer = new StreamWriter(filePath + i.ToString() + "f" + ".txt"))
             {
                 writer.Write(text2);
             }
@@ -86,6 +94,7 @@ public class SearchEngineTest
         SearchEngine searchEngine = new SearchEngine(invertedIndex.InvertedFileDictIndex(fileReader.MultiFileToDict()));
 
         // Act
+        
         List<string> noResult = searchEngine.NoKeySearch(parseQuery[QueryParser.noKey]);
 
         // Assert
@@ -100,7 +109,7 @@ public class SearchEngineTest
         QueryParser queryParser = new QueryParser(queryString);
         Dictionary<string, List<string>> parseQuery = queryParser.ParseQueryToListOfKey();
 
-        string text1 = "test require +key";
+        string text1 = "test require key";
         int resultCount = 2;
         
         string text2 = "test";
@@ -116,7 +125,7 @@ public class SearchEngineTest
         }
         for (int i = 0; i < fileCount; i++)
         {
-            using (StreamWriter writer = new StreamWriter(filePath + i.ToString() + ".txt"))
+            using (StreamWriter writer = new StreamWriter(filePath + i.ToString() + "f" + ".txt"))
             {
                 writer.Write(text2);
             }

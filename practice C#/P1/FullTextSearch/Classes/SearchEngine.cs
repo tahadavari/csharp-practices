@@ -47,20 +47,36 @@ public class SearchEngine : ISearchEngine
 
     public List<string> RequireKeySearch(List<string> requireKey)
     {
-        List<string> requireResult = new List<string>();
+        Dictionary<string, List<string>> filePaths = new Dictionary<string, List<string>>();
         foreach (string key in requireKey)
         {
-            if (this._invertedIndex.TryGetValue(key, out var value))
+            if (_invertedIndex.TryGetValue(key, out var value))
             {
                 foreach (string filePath in value)
                 {
-                    requireResult.Add(filePath);
+                    if (filePaths.ContainsKey(filePath))
+                    {
+                        filePaths[filePath].Add(key);
+                    }
+                    else
+                    {
+                        filePaths[filePath] = new List<string> { key };
+                    }
                 }
             }
         }
 
+        List<string> requireResult = new List<string>();
+        foreach (var kvp in filePaths)
+        {
+            if (kvp.Value.Count == requireKey.Count)
+            {
+                requireResult.Add(kvp.Key);
+            }
+        }
         return requireResult;
     }
+
 
     public List<string> NoKeySearch(List<string> noKey)
     {
@@ -71,10 +87,7 @@ public class SearchEngine : ISearchEngine
             {
                 foreach (string filePath in value)
                 {
-                    if (noResult.Contains(filePath))
-                    {
-                        noResult.Add(filePath);
-                    }
+                    noResult.Add(filePath);
                 }
             }
         }
