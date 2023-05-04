@@ -5,54 +5,37 @@ namespace FullTextSearch.Classes;
 
 public class FileReader : IFileReader
 {
-    private readonly string _filePath;
-    private readonly  bool _multi;
-    private readonly Encoding _encoding;
-    private readonly string _directoryPath;
-    private readonly string _fileType;
-
-    public FileReader(Encoding? encoding = null, string filePath = null, string directoryPath = null, bool multi = false,
-        string fileType = "txt")
+    public string FileToString(string filePath, Encoding? encoding = null)
     {
-        this._filePath = filePath;
-        this._multi = multi;
-        this._encoding = encoding ?? Encoding.UTF8;
-        this._directoryPath = directoryPath;
-        this._fileType = fileType;
-    }
-
-    public string FileToString()
-    {
-        if (_multi)
+        if (encoding is null)
         {
-            throw new Exception("Multi is true");
+            encoding = Encoding.UTF8;
         }
 
-        string fileString = File.ReadAllText(this._filePath, this._encoding);
+        string fileString = File.ReadAllText(filePath, encoding);
         return fileString;
     }
 
-    public Dictionary<string, string> MultiFileToDict()
+    public Dictionary<string, string> MultiFileToDict(string directoryPath, string fileType = "txt",
+        Encoding? encoding = null)
     {
-        if (!_multi)
+        if (encoding is null)
         {
-            throw new Exception("Multi is false");
+            encoding = Encoding.UTF8;
         }
-        
-        
+
         Dictionary<string, string> filesDictionary = new Dictionary<string, string>();
 
-        DirectoryInfo directory = new DirectoryInfo(this._directoryPath);
-        FileInfo[] files = directory.GetFiles("*."+_fileType);
+        DirectoryInfo directory = new DirectoryInfo(directoryPath);
+        FileInfo[] files = directory.GetFiles("*." + fileType);
 
         foreach (FileInfo file in files)
         {
             string fileName = file.Name;
-            string fileContent = File.ReadAllText(file.FullName); 
-            filesDictionary.Add(fileName, fileContent); 
+            string fileContent = File.ReadAllText(file.FullName, encoding);
+            filesDictionary.Add(fileName, fileContent);
         }
 
         return filesDictionary;
-
     }
 }

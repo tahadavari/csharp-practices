@@ -9,10 +9,10 @@ public class QueryParserTest
     {
         // Arrange
         string queryString = "Hello World +to +if +you -Programming";
-        QueryParser queryParser = new QueryParser(queryString);
+        QueryParser queryParser = new QueryParser();
 
         // Act
-        Dictionary<string, List<string>> result = queryParser.ParseQueryToListOfKey();
+        Dictionary<string, List<string>> result = queryParser.ParseQueryToListOfKey(queryString);
         
         
 

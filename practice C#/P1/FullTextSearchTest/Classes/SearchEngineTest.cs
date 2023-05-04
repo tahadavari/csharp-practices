@@ -5,30 +5,17 @@ namespace FullTextSearchTest.Classes;
 
 public class SearchEngineTest
 {
-    private readonly ITestOutputHelper _testOutputHelper;
-
-    public SearchEngineTest(ITestOutputHelper testOutputHelper)
-    {
-        _testOutputHelper = testOutputHelper;
-    }
-
-    [Fact]
-    public void TestInvertedIndexSearch()
-    {
-        
-    }
-
     [Fact]
     public void TestRequireKeySearch()
     {
         // Arrange
         string queryString = "test require +key -search";
-        QueryParser queryParser = new QueryParser(queryString);
-        Dictionary<string, List<string>> parseQuery = queryParser.ParseQueryToListOfKey();
+        QueryParser queryParser = new QueryParser();
+        Dictionary<string, List<string>> parseQuery = queryParser.ParseQueryToListOfKey(queryString);
 
         string text1 = "test require";
         int resultCount = 2;
-        
+
         string text2 = "test";
         int fileCount = 3;
         string directoryPath = @"E:\mohaymen\practice C#\P1\FullTextSearchTest\Assest\";
@@ -40,6 +27,7 @@ public class SearchEngineTest
                 writer.Write(text1);
             }
         }
+
         for (int i = 0; i < fileCount; i++)
         {
             using (StreamWriter writer = new StreamWriter(filePath + i.ToString() + "f" + ".txt"))
@@ -48,12 +36,14 @@ public class SearchEngineTest
             }
         }
 
-        FileReader fileReader = new FileReader(directoryPath: directoryPath, multi: true);
+        FileReader fileReader = new FileReader();
         InvertedIndex invertedIndex = new InvertedIndex();
-        SearchEngine searchEngine = new SearchEngine(invertedIndex.InvertedFileDictIndex(fileReader.MultiFileToDict()));
+        SearchEngine searchEngine = new SearchEngine();
 
         // Act
-        List<string> requireResult = searchEngine.RequireKeySearch(parseQuery[QueryParser.requireKey]);
+        List<string> requireResult = searchEngine.RequireKeySearch(
+            invertedIndex.InvertedFileDictIndex(fileReader.MultiFileToDict(directoryPath)),
+            parseQuery[QueryParser.requireKey]);
 
         // Assert
         Assert.Equal(requireResult.Count, resultCount);
@@ -64,12 +54,12 @@ public class SearchEngineTest
     {
         // Arrange
         string queryString = "test require +key -search";
-        QueryParser queryParser = new QueryParser(queryString);
-        Dictionary<string, List<string>> parseQuery = queryParser.ParseQueryToListOfKey();
+        QueryParser queryParser = new QueryParser();
+        Dictionary<string, List<string>> parseQuery = queryParser.ParseQueryToListOfKey(queryString);
 
         string text1 = "test require search";
         int resultCount = 2;
-        
+
         string text2 = "test";
         int fileCount = 3;
         string directoryPath = @"E:\mohaymen\practice C#\P1\FullTextSearchTest\Assest\";
@@ -81,6 +71,7 @@ public class SearchEngineTest
                 writer.Write(text1);
             }
         }
+
         for (int i = 0; i < fileCount; i++)
         {
             using (StreamWriter writer = new StreamWriter(filePath + i.ToString() + "f" + ".txt"))
@@ -89,13 +80,15 @@ public class SearchEngineTest
             }
         }
 
-        FileReader fileReader = new FileReader(directoryPath: directoryPath, multi: true);
+        FileReader fileReader = new FileReader();
         InvertedIndex invertedIndex = new InvertedIndex();
-        SearchEngine searchEngine = new SearchEngine(invertedIndex.InvertedFileDictIndex(fileReader.MultiFileToDict()));
+        SearchEngine searchEngine = new SearchEngine();
 
         // Act
-        
-        List<string> noResult = searchEngine.NoKeySearch(parseQuery[QueryParser.noKey]);
+
+        List<string> noResult =
+            searchEngine.NoKeySearch(invertedIndex.InvertedFileDictIndex(fileReader.MultiFileToDict(directoryPath)),
+                parseQuery[QueryParser.noKey]);
 
         // Assert
         Assert.Equal(noResult.Count, resultCount);
@@ -106,12 +99,12 @@ public class SearchEngineTest
     {
         // Arrange
         string queryString = "test require +key -search";
-        QueryParser queryParser = new QueryParser(queryString);
-        Dictionary<string, List<string>> parseQuery = queryParser.ParseQueryToListOfKey();
+        QueryParser queryParser = new QueryParser();
+        Dictionary<string, List<string>> parseQuery = queryParser.ParseQueryToListOfKey(queryString);
 
         string text1 = "test require key";
         int resultCount = 2;
-        
+
         string text2 = "test";
         int fileCount = 3;
         string directoryPath = @"E:\mohaymen\practice C#\P1\FullTextSearchTest\Assest\";
@@ -123,6 +116,7 @@ public class SearchEngineTest
                 writer.Write(text1);
             }
         }
+
         for (int i = 0; i < fileCount; i++)
         {
             using (StreamWriter writer = new StreamWriter(filePath + i.ToString() + "f" + ".txt"))
@@ -131,12 +125,14 @@ public class SearchEngineTest
             }
         }
 
-        FileReader fileReader = new FileReader(directoryPath: directoryPath, multi: true);
+        FileReader fileReader = new FileReader();
         InvertedIndex invertedIndex = new InvertedIndex();
-        SearchEngine searchEngine = new SearchEngine(invertedIndex.InvertedFileDictIndex(fileReader.MultiFileToDict()));
+        SearchEngine searchEngine = new SearchEngine();
 
         // Act
-        List<string> optionalResult = searchEngine.OptionalKeySearch(parseQuery[QueryParser.optionalKey]);
+        List<string> optionalResult = searchEngine.OptionalKeySearch(
+            invertedIndex.InvertedFileDictIndex(fileReader.MultiFileToDict(directoryPath)),
+            parseQuery[QueryParser.optionalKey]);
 
         // Assert
         Assert.Equal(optionalResult.Count, resultCount);

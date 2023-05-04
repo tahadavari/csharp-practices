@@ -43,7 +43,7 @@ public class InvertedIndexTest
             }
         }
 
-        FileReader fileReader = new FileReader(Encoding.UTF8, directoryPath: directoryPath, multi: true);
+        FileReader fileReader = new FileReader();
 
         Dictionary<string, string> filesDictionary = new Dictionary<string, string>();
 
@@ -57,6 +57,6 @@ public class InvertedIndexTest
             filesDictionary.Add(fileName, fileContent);
         }
 
-        return fileReader.MultiFileToDict();
+        return fileReader.MultiFileToDict(directoryPath);
     }
 }

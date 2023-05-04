@@ -17,26 +17,13 @@ public class FileReaderTest
             writer.Write(text);
         }
 
-        FileReader fileReader = new FileReader(Encoding.UTF8, filePath: file, multi: false);
+        FileReader fileReader = new FileReader();
 
         // Act
-        string fileContent = fileReader.FileToString();
+        string fileContent = fileReader.FileToString(filePath: file, Encoding.UTF8);
 
         // Assert
         Assert.Equal(text, fileContent);
-    }
-
-    [Fact]
-    public void TestRaiseExceptionReadFileToStringButMultiIsTrue()
-    {
-        // Arrange
-        FileReader fileReader = new FileReader(Encoding.UTF8, multi: true);
-
-        // Act
-        var exception = Assert.Throws<Exception>(() => fileReader.FileToString());
-
-        // Assert
-        Assert.Equal("Multi is true", exception.Message);
     }
 
 
@@ -45,21 +32,20 @@ public class FileReaderTest
     {
         // Arrange
         string directoryPath = @"E:\mohaymen\practice C#\P1\FullTextSearchTest\Assest\";
-        string fileBaseName = directoryPath+"example";
+        string fileBaseName = directoryPath + "example";
         string textBase = "Hello, world!";
         int fileCount = 5;
 
         for (int i = 0; i < fileCount; i++)
         {
-            using (StreamWriter writer = new StreamWriter(fileBaseName+i.ToString()+".txt"))
+            using (StreamWriter writer = new StreamWriter(fileBaseName + i.ToString() + ".txt"))
             {
-                writer.Write(textBase+i.ToString());
+                writer.Write(textBase + i.ToString());
             }
         }
 
-        
 
-        FileReader fileReader = new FileReader(Encoding.UTF8, directoryPath: directoryPath, multi: true);
+        FileReader fileReader = new FileReader();
 
         Dictionary<string, string> filesDictionary = new Dictionary<string, string>();
 
@@ -69,38 +55,24 @@ public class FileReaderTest
         foreach (FileInfo file in files)
         {
             string fileName = file.Name;
-            string fileContent = File.ReadAllText(file.FullName); //خواندن محتوای فایل
-            filesDictionary.Add(fileName, fileContent); //افزودن نام و محتوای فایل به دیکشنری
+            string fileContent = File.ReadAllText(file.FullName);
+            filesDictionary.Add(fileName, fileContent);
         }
-        
+
 
         // Act
-        Dictionary<string, string> result = fileReader.MultiFileToDict();
+        Dictionary<string, string> result = fileReader.MultiFileToDict(directoryPath);
 
         // Assert
         Assert.Equal(result, filesDictionary);
-        
-        
-        
+
+
         for (int i = 0; i < fileCount; i++)
         {
-            if(File.Exists(fileBaseName+i.ToString()+".txt"))
+            if (File.Exists(fileBaseName + i.ToString() + ".txt"))
             {
-                File.Delete(fileBaseName+i.ToString()+".txt");
+                File.Delete(fileBaseName + i.ToString() + ".txt");
             }
         }
-    }
-
-    [Fact]
-    public void TestRaiseExceptionReadMultiFileToDictButMultiIsFalse()
-    {
-        // Arrange
-        FileReader fileReader = new FileReader(Encoding.UTF8);
-
-        // Act
-        var exception = Assert.Throws<Exception>(() => fileReader.MultiFileToDict());
-
-        // Assert
-        Assert.Equal("Multi is false", exception.Message);
     }
 }
